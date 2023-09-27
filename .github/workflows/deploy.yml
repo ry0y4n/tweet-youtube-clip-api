@@ -8,7 +8,7 @@ on:
 env:
   AZURE_FUNCTIONAPP_NAME: 'tweet-youtube-clip-api-v1'
   AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'
-  NODE_VERSION: '18.x'
+  NODE_VERSION: '16.x'
 
 jobs:
   build-and-deploy:
@@ -22,14 +22,14 @@ jobs:
       with:
         node-version: ${{ env.NODE_VERSION }}
 
-    # - name: 'Resolve Project Dependencies Using Npm'
-    #   shell: bash
-    #   run: |
-    #     pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
-    #     npm install
-    #     npm run build --if-present
-    #     npm run test --if-present
-    #     popd
+    - name: 'Resolve Project Dependencies Using Npm'
+      shell: bash
+      run: |
+        pushd './${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
+        npm install
+        npm run build --if-present
+        npm run test --if-present
+        popd
 
     - name: 'Run Azure Functions Action'
       uses: Azure/functions-action@v1
@@ -38,5 +38,3 @@ jobs:
         app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
         package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
         publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
-        scm-do-build-during-deployment: true
-        enable-oryx-build: true
