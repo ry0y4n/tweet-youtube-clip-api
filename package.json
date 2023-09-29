@@ -9,7 +9,8 @@
     "start": "func start",
     "test": "echo \"No tests yet...\"",
     "lint": "npx eslint ./TweetYoutubeClip --ext .ts,.js",
-    "lint:fix": "npx eslint ./TweetYoutubeClip --ext .ts,.js --fix"
+    "lint:fix": "npx eslint ./TweetYoutubeClip --ext .ts,.js --fix",
+    "deploy": "npm run build && func azure functionapp publish tweet-youtube-clip-api-v1"
   },
   "devDependencies": {
     "@azure/functions": "^3.0.0",

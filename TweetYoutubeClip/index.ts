@@ -20,7 +20,7 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
   if(!url) {
     context.res = {
       status: 400,
-      body: "Please pass a url on the query string or in the request body!!!"
+      body: "Please pass a url on the query string or in the request body"
     };
     return;
   }
