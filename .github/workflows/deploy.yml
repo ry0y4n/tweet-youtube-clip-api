@@ -1,9 +1,10 @@
+# WIP...
 name: Build and deploy Node.js project to Azure Function App
 
 on:
-  push:
-    branches:
-      - main
+  # push:
+  #   branches:
+  #     - main
   workflow_dispatch:
 
 env:
