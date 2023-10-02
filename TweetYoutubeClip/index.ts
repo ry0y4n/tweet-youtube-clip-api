@@ -38,7 +38,7 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
       '-f',
       'best[ext=mp4]',
     ]);
-        
+
     const chunks = [];
 
     await new Promise<void>((resolve, reject) => {
