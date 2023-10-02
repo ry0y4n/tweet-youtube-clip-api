@@ -92,7 +92,7 @@ async function tweetClip(context: Context, data: Buffer, title: string, url: str
   context.log('Tweeted');
 }
 
-function convertYouTubeUrl(url) {
+export function convertYouTubeUrl(url: string): string {
   const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?([^&]+)/;
   const match = url.match(regex);
   if (match) {
